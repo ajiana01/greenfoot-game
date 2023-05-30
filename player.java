@@ -12,7 +12,7 @@ public class player extends Actor
     private int currentImageIndex;
     private GreenfootImage cursorImage;
     private long lastShotTime = 0;
-    private long shootDelay = 100;
+    private long shootDelay = 175;
     int time=0;
     private GreenfootSound sfx;
     
@@ -38,6 +38,8 @@ public class player extends Actor
         moveAround();
         shootWeapon();
         hitByShrimp();
+        hitByDeadbeat();
+        hitByTakodachi();
     }
     
     public void turnAround() {

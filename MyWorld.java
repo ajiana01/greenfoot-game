@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {   
     int count = 0;
-    int spawnSpeed = 50;
     int randomSpawn;
     public player mainPlayer = new player();
     counter Counter = new counter();
@@ -19,10 +18,9 @@ public class MyWorld extends World
     public MyWorld()
     {    
         super(1280, 720, 1);
-        
         prepare();
         act();
-        
+        started();
     }
     
     public player getPlayer(){
@@ -44,7 +42,7 @@ public class MyWorld extends World
     }
     
     public void spawnShrimps() {
-        if (count % spawnSpeed == 0){
+        if (count % 100 == 0){
             randomSpawn = Greenfoot.getRandomNumber(8);
             switch(randomSpawn) {
                 case 0 : addObject(new shrimp(mainPlayer,Counter), 0, 0); break;
@@ -60,7 +58,7 @@ public class MyWorld extends World
     }
     
     public void spawnDeadbeat() {
-        if (count % 100 == 0){
+        if (count % 200 == 0){
             randomSpawn = Greenfoot.getRandomNumber(2);
             switch(randomSpawn) {
                 case 0 : addObject(new deadbeat(mainPlayer,Counter), 0, 0); break;
@@ -76,7 +74,7 @@ public class MyWorld extends World
     }
     
     public void spawnTakodachi() {
-        if (count % 200 == 0){
+        if (count % 500 == 0){
             randomSpawn = Greenfoot.getRandomNumber(1);
             switch(randomSpawn) {
                 case 0 : addObject(new takodachi(mainPlayer,Counter), 0, 0); break;
@@ -95,7 +93,7 @@ public class MyWorld extends World
         // memulai pemutaran musik ketika game dimulai
         music = new GreenfootSound("sounds/intro.wav");
         music.playLoop();
-        music.setVolume(50);
+        music.setVolume(60);
     }
 
     public void stopped() {
